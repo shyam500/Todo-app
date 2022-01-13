@@ -64,9 +64,3 @@ document.addEventListener('DOMContentLoaded',()=>{
         todoArr.forEach(i=> addTodoFunc(i));
     }
 });
-
-// function getFromLocal(){
-    
-// };
-
-// getFromLocal();
