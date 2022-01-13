@@ -4,25 +4,25 @@ const input = document.querySelector('#textinp'),
     delBtn = document.querySelector('.delbtn');
 
 // add todo to list 
-addBtn.addEventListener('click',()=>{
-    if(input.value !== ''){
+addBtn.addEventListener('click', () => {
+    if (input.value !== '') {
         addTodoFunc(input.value);
         input.value = '';
-    }else{
+    } else {
         alert('Add a todo');
     }
-    
+
 });
 
 
-function addTodoFunc(val){
+function addTodoFunc(val) {
     const li = createTodoFunc(val);
     list.appendChild(li);
-    console.log(li);
+    addToLocal(val);
 };
 
 
-function createTodoFunc(val){
+function createTodoFunc(val) {
     const li = document.createElement('li');
     li.textContent = val;
     const span = document.createElement('span');
@@ -33,8 +33,40 @@ function createTodoFunc(val){
 };
 
 
-document.addEventListener('click',e=>{
-    if(e.target.className === 'delbtn'){
+document.addEventListener('click', e => {
+    if (e.target.className === 'delbtn') {
+        removeFromLocal(e.target.parentElement.textContent)
         e.target.parentElement.remove();
     }
 });
+
+// adding todos to localstorage
+const todoArr = [];
+function addToLocal(val) {
+    todoArr.push(val);
+    localStorage.setItem('todo', JSON.stringify(todoArr));
+    console.log(localStorage);
+};
+
+// removing todos to localstorage
+function removeFromLocal(val) {
+    val = val.slice(0, -1);
+    let todoArr = JSON.parse(localStorage.getItem('todo'));
+    console.log(val);
+    todoArr = todoArr.filter(i => i !== val);
+    localStorage.setItem('todo', JSON.stringify(todoArr));
+};
+
+//get todos from localstorage
+document.addEventListener('DOMContentLoaded',()=>{
+    const todoArr = JSON.parse(localStorage.getItem('todo'));
+    if(todoArr !== null){
+        todoArr.forEach(i=> addTodoFunc(i));
+    }
+});
+
+// function getFromLocal(){
+    
+// };
+
+// getFromLocal();
