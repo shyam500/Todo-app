@@ -1,0 +1,109 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: "poppins", "Courier New", Courier, monospace;
+  user-select: none;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  height: 10vh;
+  color: white;
+  background-color: rgb(248, 56, 56);
+  display: flex;
+  align-items: center;
+  padding: 0rem 2.1rem;
+}
+
+main {
+  height: 85vh;
+}
+
+#controll {
+  height: 3vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.2rem 0rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#textinp {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  width: 80%;
+  font-size: 1.2rem;
+}
+
+#btn {
+  padding: 0.2rem;
+}
+
+#listbox {
+  height: 68vh;
+  width: 80%;
+  margin: auto;
+  overflow-y: auto;
+}
+
+li{
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    border: 2px solid rgb(248, 56, 56);
+    border-radius: 10px;
+    padding: 0.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.1s linear;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 1rem;
+}
+
+li:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+#delbtn:hover{
+    color: rgb(248, 56, 56);
+}
+
+footer{
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    border-top: 1px solid rgb(248, 56, 56);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+@media screen and (max-width:540px) {
+    #textinp{   
+        color: red;
+        width: 70%;
+    }  
+
+    footer{
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width:340px) {
+    #textinp{   
+        color: red;
+        width: 60%;
+    }  
+    footer{
+        font-size: 0.6rem;
+    }
+}
