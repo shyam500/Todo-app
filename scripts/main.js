@@ -45,14 +45,12 @@ const todoArr = [];
 function addToLocal(val) {
     todoArr.push(val);
     localStorage.setItem('todo', JSON.stringify(todoArr));
-    console.log(localStorage);
 };
 
 // removing todos to localstorage
 function removeFromLocal(val) {
     val = val.slice(0, -1);
     let todoArr = JSON.parse(localStorage.getItem('todo'));
-    console.log(val);
     todoArr = todoArr.filter(i => i !== val);
     localStorage.setItem('todo', JSON.stringify(todoArr));
 };
